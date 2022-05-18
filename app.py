@@ -9,6 +9,7 @@ import json
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit
 
+
 import biotools_API_querying as bAq
 import db_results
 
@@ -78,8 +79,9 @@ app = Flask(__name__,
             template_folder='templates')
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
 socketio = SocketIO(app)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
 
 @app.route('/',methods = ['POST'])
 def run_discoverer():
@@ -94,7 +96,7 @@ def run_discoverer():
                     'result_found':this_run.result_found,
                     'run_id':this_run.run_id}
         except Exception as err:
-            data = {'message': "something went wrong", 'code': 'ERROR'}
+            data = {'message': str(err), 'code': 'ERROR'}
             resp = make_response(data, 400)
             resp.set_cookie('same-site-cookie', 'foo', samesite='Lax')
             resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
@@ -109,7 +111,7 @@ def run_discoverer():
             resp.set_cookie('cross-site-cookie', 'bar', samesite='Lax', secure=True)
             return resp
     else:
-      return(make_response('', 400))
+      return(make_response('not post', 400))
 
 @app.route('/result/fetch')
 def send_misc():
