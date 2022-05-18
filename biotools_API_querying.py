@@ -81,7 +81,7 @@ class tools_discoverer(object):
                 term['weight']= term['weight'] + 1
                 self.keywords_weights.append(term)
 
-                self.keywords_weights.append({'keyword':keyword, 'classId':None, 'weight':w})
+                self.keywords_weights.append({'keyword':keyword, 'classId':None, 'weight':term['weight']})
                 self.free_terms.append(keyword)
             else:
                 if self.verbosity:
