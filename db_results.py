@@ -28,7 +28,7 @@ def push(results, raw_input, result_found):
     collection = connect_mongo()
     id_ = uuid.uuid1()
     try:
-        collection.insert({'run_id':id_.hex,'input_parameters':raw_input, 'result':results, 'result_found':result_found})
+        collection.insert_one({'run_id':id_.hex,'input_parameters':raw_input, 'result':results, 'result_found':result_found})
     except Exception as err:
         print('Could not insert in collection')
         raise(err)
