@@ -4,7 +4,7 @@ import pandas as pd
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-import csv
+#import csv
 import bibtexparser
 import json
 
@@ -27,12 +27,18 @@ tools_discov_collection = connection[DATABASE][DISCOV_COLLECTION]
 edam_df = pd.read_csv('EDAM_1.25.csv')
 edam_dict = dict(zip(edam_df['Class ID'], edam_df['Preferred Label']))
 
+'''
 with open('fairplus_tools.csv','r') as annot:
-        csvreader = csv.reader(annot)
-        curated_tools = []
-        for row in csvreader:
-            d = {'tool':row[0], 'category':row[1]}
-            curated_tools.append(d)
+    """
+    Adds curation annotation to tools
+    TODO
+    """
+    csvreader = csv.reader(annot)
+    curated_tools = []
+    for row in csvreader:
+        d = {'tool':row[0], 'category':row[1]}
+        curated_tools.append(d)
+'''
 
 def match_edam_label(uri):
     # following id changed in last version
@@ -347,10 +353,10 @@ def searchable_data_prep():
                 tool[f"{data_inout}_format_labels"] = list(tool[f"{data_inout}_format_labels"])
 
 
-        discoverer_tool['curated'] = curated(tool)
+        #discoverer_tool['curated'] = curated(tool)
         discoverer_tool['citations'], discoverer_tool['citations_other'], discoverer_tool['pubs_titles'] = extract_citations(tool)
         discoverer_tool['sources_labels'] = aggregate_sources_labels(tool)
-        tools_discov_collection.insert(discoverer_tool)
+        tools_discov_collection.insert_one(discoverer_tool)
 
 def index():
     tools_discov_collection.create_index('edam_operations')
