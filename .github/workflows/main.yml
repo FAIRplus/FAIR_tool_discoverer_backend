@@ -25,6 +25,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./api
+          context: "{{defaultContext}}:api"
           push: true
           tags: emartps/tools-discoverer-api:latest
