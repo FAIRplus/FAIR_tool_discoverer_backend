@@ -1,10 +1,7 @@
 import json
-import requests
-import os
 import pandas as pd
 
 import db_retrieval
-import db_results
 import zooma_api as za
 
 class bcolors:

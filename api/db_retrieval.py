@@ -18,6 +18,7 @@ class query(object):
         self.free_terms = free_terms
         self.results = pd.DataFrame(columns =['_id',
                                               '@id', 
+                                              'label',
                                               'authors',
                                               'bioschemas',
                                               'curation',

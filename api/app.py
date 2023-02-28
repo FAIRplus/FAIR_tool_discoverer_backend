@@ -1,10 +1,6 @@
 from os import path
-from flask import Flask, request, render_template, flash, session, jsonify, make_response, send_from_directory, Response
+from flask import Flask, request, jsonify, make_response
 import pandas as pd
-import io
-import time
-import uuid
-import json
 import uuid
 from flask_cors import CORS,cross_origin
 
@@ -121,7 +117,7 @@ def run_discoverer():
       return(make_response('not post', 400))
 
 @app.route('/result/fetch', methods=['GET'])
-@cross_origin(origin='*')
+@cross_origin(origin='*', headers=['Content-Type'])
 def send_misc():
     run_id = request.args.get('id')
     try:
