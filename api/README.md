@@ -1,6 +1,6 @@
 # FAIR Tools Discoverer API 
 
-The file `api/config.ini` contains the database connection details used by the application. The required parameters are the following:
+The database connection details are set through environment variables:
 
 | Parameter | Description | 
 | --- | --- |
