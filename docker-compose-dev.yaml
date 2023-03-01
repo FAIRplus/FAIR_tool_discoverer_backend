@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mongodb:
+    container_name: mongo_dev
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  mongo-seed:
+    container_name: mongo_seed
+    build: ./database/mongo-seed
+    depends_on:
+      - 'mongodb'
+  
+  prepare-data:
+    container_name: prepare_data
+    build: ./database/prepare-data
+    depends_on:
+      - 'mongo-seed'
+  
+  back-end:
+    image: emartps/tools-discoverer-api
+    restart: unless-stopped
+    depends_on:
+      - 'mongodb'
+
+  front-end:
+    image: emartps/tools-discoverer-nuxt
+    restart: unless-stopped
+    depends_on:
+      - 'back-end' 
+    ports:
+      - '8080:80'

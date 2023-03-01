@@ -1,13 +1,13 @@
-import configparser
+from dotenv import load_dotenv
+import os
 from pymongo import MongoClient
 import pandas as pd
 
-config = configparser.ConfigParser()
-config.read('config.ini')
-DBHOST = config['MONGO_DETAILS']['DBHOST']
-DBPORT = config['MONGO_DETAILS']['DBPORT']
-DATABASE = config['MONGO_DETAILS']['DATABASE']
-COLLECTION = config['MONGO_DETAILS']['DISCOV_COLLECTION']
+load_dotenv()
+DBHOST = os.getenv('DBHOST')
+DBPORT = os.getenv('DBPORT')
+DATABASE = os.getenv('DATABASE')
+COLLECTION = os.getenv('DISCOV_COLLECTION')
 
 edam_df = pd.read_csv('EDAM_1.25.csv')
 edam_dict = dict(zip(edam_df['Class ID'], edam_df['Preferred Label']))

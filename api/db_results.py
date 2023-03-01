@@ -1,14 +1,14 @@
-import configparser
+import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 import pandas as pd
 
 
-config = configparser.ConfigParser()
-config.read('config.ini')
-DBHOST = config['MONGO_DETAILS']['DBHOST']
-DBPORT = config['MONGO_DETAILS']['DBPORT']
-DATABASE = config['MONGO_DETAILS']['DATABASE']
-COLLECTION = config['MONGO_DETAILS']['RESULTS_COLLECTION']
+load_dotenv()
+DBHOST = os.getenv('DBHOST')
+DBPORT = os.getenv('DBPORT')
+DATABASE = os.getenv('DATABASE')
+COLLECTION = os.getenv('RESULTS_COLLECTION')
 
 def connect_mongo():
     connection = MongoClient(DBHOST, int(DBPORT))

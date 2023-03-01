@@ -12,6 +12,7 @@ flask-cors = "*"
 flask-socketio = "*"
 requests = "*"
 pymongo = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"

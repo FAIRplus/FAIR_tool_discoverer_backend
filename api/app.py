@@ -4,7 +4,6 @@ import pandas as pd
 import uuid
 from flask_cors import CORS,cross_origin
 
-
 import biotools_API_querying as bAq
 import db_results
 
@@ -135,4 +134,5 @@ def send_misc():
 
 
 if __name__ == '__main__':
+    load_dotenv()
     app.run(debug=True)
