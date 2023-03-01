@@ -1,6 +1,8 @@
 name: ci
 
-on: [workflow_dispatch, release]
+on:
+  release:
+    types: [published]
 
 jobs:
   docker:
