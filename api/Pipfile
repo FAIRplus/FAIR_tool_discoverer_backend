@@ -13,6 +13,7 @@ requests = "*"
 pymongo = "*"
 python-dotenv = "*"
 fastapi = "*"
+uvicorn = {extras = ["standard"], version = "*"}
 
 [requires]
 python_version = "3.8"
