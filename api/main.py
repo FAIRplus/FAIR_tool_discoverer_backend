@@ -14,8 +14,10 @@ import db_results
 
 import logging
 
-logging.basicConfig(filename='logs/FAIRTool.log', encoding='utf-8', level=logging.DEBUG)
-
+root_logger= logging.getLogger()
+root_logger.setLevel(logging.DEBUG) # or whatever
+handler = logging.FileHandler('logs/api.log', 'w', 'utf-8') # or whatever
+root_logger.addHandler(handler)
 
 class unique_run(object):
 
