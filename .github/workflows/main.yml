@@ -1,4 +1,4 @@
-name: ci
+name: build and redeploy
 
 on:
   release:
@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: "{{defaultContext}}:api"
           push: true
@@ -37,5 +37,3 @@ jobs:
         uses: joelwmale/webhook-action@master
         env:
           WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL  }}
-          data: "{ 'myField': 'myFieldValue'}"
-
