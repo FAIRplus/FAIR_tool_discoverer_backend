@@ -1,14 +1,7 @@
-import os
-from dotenv import load_dotenv
-from pymongo import MongoClient
 import pandas as pd
 import logging 
+from utils import connectMongo
 
-load_dotenv()
-DBHOST = os.getenv('DBHOST')
-DBPORT = os.getenv('DBPORT')
-DATABASE = os.getenv('DATABASE')
-COLLECTION = os.getenv('DISCOV_COLLECTION')
 
 edam_df = pd.read_csv('EDAM_1.25.csv')
 edam_dict = dict(zip(edam_df['Class ID'], edam_df['Preferred Label']))
@@ -149,8 +142,7 @@ class query(object):
       
     
     def connect_mongo(self):
-        connection = MongoClient(DBHOST, int(DBPORT))
-        self.collection = connection[DATABASE][COLLECTION]
+        self.collection, self.resultsCollection = connectMongo()
 
     def getData(self):
         self.connect_mongo()

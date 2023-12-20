@@ -1,19 +1,12 @@
-import os
 from dotenv import load_dotenv
-from pymongo import MongoClient
-import pandas as pd
 import logging
+from utils import connectMongo
 
 
 load_dotenv()
-DBHOST = os.getenv('DBHOST')
-DBPORT = os.getenv('DBPORT')
-DATABASE = os.getenv('DATABASE')
-COLLECTION = os.getenv('RESULTS_COLLECTION')
 
 def connect_mongo():
-    connection = MongoClient(DBHOST, int(DBPORT))
-    collection = connection[DATABASE][COLLECTION]
+    discovCollection, collection = connectMongo()
     return(collection)
 
 def query_by_id(identifier):
