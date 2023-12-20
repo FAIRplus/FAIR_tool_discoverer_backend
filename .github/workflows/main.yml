@@ -1,4 +1,4 @@
-name: build and redeploy
+name: build and push
 
 on:
   workflow_dispatch
@@ -26,13 +26,3 @@ jobs:
           context: "{{defaultContext}}:api"
           push: true
           tags: emartps/tools-discoverer-api:latest
-
-  redeploy:
-    name: Redeploy webhook call
-    runs-on: ubuntu-18.04
-    needs: [docker]
-    steps:
-      - name: Deploy docker container webhook
-        uses: joelwmale/webhook-action@master
-        env:
-          WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL  }}
