@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
 import pandas as pd
+import logging 
 
 load_dotenv()
 DBHOST = os.getenv('DBHOST')
@@ -57,7 +58,7 @@ class query(object):
   
 
     def match_edam_label(self, uri):
-        print('Matching EDAM label')
+        logging.info('Matching EDAM label')
         if uri == 'http://edamontology.org/topic_3557':
             uri = 'http://edamontology.org/operation_3557'
         try:
@@ -67,7 +68,7 @@ class query(object):
         return(label)
 
     def match_data(self, doc, td):
-        print('Data types matching ...')
+        logging.info('Data types matching ...')
         newd = []
         if td in doc.keys():
             for data in doc[td]:
@@ -83,7 +84,7 @@ class query(object):
 
 
     def add_to_results(self, matches, topic):
-        print(f'Adding to results ...')
+        logging.info(f'Adding to results ...')
         for doc in matches:
             #print(f"- {doc['name']}")
             doc['_id'] = str(doc['_id'])
@@ -97,11 +98,11 @@ class query(object):
                     self.results.loc[doc_id] = doc
                     self.results_ids.add(doc_id)
             else:
-                print('hey')
+                logging.warning('No @id in doc')
 
     def query_edam(self):
         for term in self.edam_terms:
-            print(f'Querying EDAM term {term} ...')
+            logging.debug(f'Querying EDAM term {term} ...')
             if 'operation' in term:
                 matches = self.collection.find({
                     'edam_operations.uri' : term
@@ -132,7 +133,6 @@ class query(object):
 
     def query_description(self):
         for term in self.free_terms:
-            print(term)
             term = term.lower()
             l = len(term.split(' '))
             if l==1:
