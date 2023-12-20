@@ -12,6 +12,7 @@ flask-socketio = "*"
 requests = "*"
 pymongo = "*"
 python-dotenv = "*"
+fastapi = "*"
 
 [requires]
 python_version = "3.8"

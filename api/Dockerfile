@@ -1,5 +1,5 @@
 # Base python package
-FROM python:3.6
+FROM python:3.8
 
 # Working directory
 WORKDIR /app
