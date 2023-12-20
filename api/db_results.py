@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
 import pandas as pd
+import logging
 
 
 load_dotenv()
@@ -19,9 +20,9 @@ def query_by_id(identifier):
     collection = connect_mongo()
     result = collection.find_one({'run_id':identifier})
     if result:
-        print('Result found')
+        logging.info('Result found')
     else:
-        print('No result found')
+        logging.warning('No result found')
     return(result)
 
 def push(data):
@@ -30,9 +31,9 @@ def push(data):
         collection.insert_one(data)
         data.pop('_id')
     except Exception as err:
-        print('Could not insert in collection')
+        logging.warning('Could not insert in collection')
         raise(err)
     else:
-        print('Inserted in collection') 
+        logging.info('Inserted in collection') 
 
 
