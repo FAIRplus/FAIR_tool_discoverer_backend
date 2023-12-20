@@ -5,7 +5,6 @@ The `api` directory contains the source code of the API. It is a Flask applicati
 
 The database is a MongoDB database hosted on a remote server. 
 
-
 ### Database preparation
 The directory `database/processing` contains scripts to process the data in the Software Observatory and insert new entries suitable for the Tool Discoverer. In addition, indexes for querying are created.
 
