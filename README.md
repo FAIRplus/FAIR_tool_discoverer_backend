@@ -59,6 +59,6 @@ services:
 
 ## Deployment 
 
-The deployment is done through GitHub Actions. The file `github/worflows.main.yml` contains the definition of the workflow. The workflow is triggered when a new release is created. The workflow performs the following steps:
+The deployment is done through GitHub Actions. The file `github/worflows.main.yml` contains the definition of the workflow. The workflow is triggered manually. The workflow performs the following steps:
 - 1. Build of the docker images of the API application.
 - 2. Push of the images to the Docker Hub.
