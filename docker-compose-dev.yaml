@@ -22,6 +22,8 @@ services:
   back-end:
     image: emartps/tools-discoverer-api
     restart: unless-stopped
+    volumes:
+      - ./logs/api.log:/app/logs/api.log
     depends_on:
       - 'mongodb'
 
