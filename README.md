@@ -1,6 +1,11 @@
 # FAIR Tools Discoverer Backend
 
-[:book: Documentation](https://fair-tool-discoverer.bsc.es/api)
+[![build and push](https://github.com/FAIRplus/FAIR_tool_discoverer_backend/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/FAIRplus/FAIR_tool_discoverer_backend/actions/workflows/main.yml)
+ [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/emartps/tools-discoverer-api?sort=semver)](https://hub.docker.com/r/emartps/tools-discoverer-api)
+[![License](https://img.shields.io/github/license/FAIRplus/FAIR_tool_discoverer_backend)](https://github.com/FAIRplus/FAIR_tool_discoverer_backend/blob/main/LICENSE.md) 
+
+
+[:book: Documentation](https://fair-tool-discoverer.bsc.es/api) -  [:globe_with_meridians: Web App](https://fair-tool-discoverer.bsc.es)
 
 ---
 
