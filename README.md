@@ -65,6 +65,8 @@ DISCOV_COLLECTION=discoverer
 RESULTS_COLLECTION=results
 ``` 
 
+The API logs are stored in the `/app/logs` directory. The directory is mounted as a volume in the container.
+
 #### Using a mock database in a Docker and docker-compose  
 
 The API can be run with a mock database in a Docker container. The mock database is generated from the data in the Software Observatory. A seed database for development purposes can be build with the Dockerfile in `database/mongo-seed`. 
