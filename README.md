@@ -7,7 +7,7 @@
 
 [Documentation](https://fair-tool-discoverer.bsc.es/api) -  [Web App](https://fair-tool-discoverer.bsc.es)
 
----
+___
 
 
 The `api` directory contains the source code of the API. It is a [FastAPI](https://fastapi.tiangolo.com/) application. 
