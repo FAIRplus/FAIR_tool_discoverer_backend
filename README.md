@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/FAIRplus/FAIR_tool_discoverer_backend)](https://github.com/FAIRplus/FAIR_tool_discoverer_backend/blob/main/LICENSE.md) 
 
 
-[:book: Documentation](https://fair-tool-discoverer.bsc.es/api) -  [:globe_with_meridians: Web App](https://fair-tool-discoverer.bsc.es)
+[Documentation](https://fair-tool-discoverer.bsc.es/api) -  [Web App](https://fair-tool-discoverer.bsc.es)
 
 ---
 
