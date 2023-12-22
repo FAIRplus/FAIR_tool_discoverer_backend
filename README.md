@@ -5,11 +5,6 @@
 [![License](https://img.shields.io/github/license/FAIRplus/FAIR_tool_discoverer_backend)](https://github.com/FAIRplus/FAIR_tool_discoverer_backend/blob/main/LICENSE.md) 
 
 
-[Documentation](https://fair-tool-discoverer.bsc.es/api) -  [Web App](https://fair-tool-discoverer.bsc.es)
-
-___
-
-
 The `api` directory contains the source code of the API. It is a [FastAPI](https://fastapi.tiangolo.com/) application. 
 
 The database is a [MongoDB](https://www.mongodb.com/) database hosted on a remote server. 
